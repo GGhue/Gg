@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarot Card Drawer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        #cardImage {
+            width: 200px;
+            height: 300px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-size: cover;
+            background-position: center;
+        }
+        .button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+        #cardDetails {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+        #cardName {
+            font-weight: bold;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+        #cardMeaning {
+            font-size: 18px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Draw a Tarot Card</h1>
+        <div id="cardImage"></div>
+        <button class="button" onclick="drawCard()">Draw a Card</button>
+        <div id="cardDetails">
+            <div id="cardName"></div>
+            <div id="cardMeaning"></div>
+        </div>
+    </div>
+
+    <script>
+        const tarotCards = [
+            { name: "The Fool", image: "images/the-fool.jpg", meaning: "New beginnings, adventure, and potential." },
+            { name: "The Magician", image: "images/the-magician.jpg", meaning: "Manifestation, resourcefulness, and power." },
+            { name: "The High Priestess", image: "images/the-high-priestess.jpg", meaning: "Intuition, mystery, and spiritual insight." },
+            { name: "The Empress", image: "images/the-empress.jpg", meaning: "Nurturing, abundance, and fertility." },
+            // Add more cards as needed
+        ];
+
+        function drawCard() {
+            const randomIndex = Math.floor(Math.random() * tarotCards.length);
+            const card = tarotCards[randomIndex];
+            
+            document.getElementById('cardImage').style.backgroundImage = `url('${card.image}')`;
+            document.getElementById('cardName').textContent = card.name;
+            document.getElementById('cardMeaning').textContent = card.meaning;
+        }
+    </script>
+</body>
+</html>
